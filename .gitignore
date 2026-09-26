@@ -1,0 +1,16 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+
+# Compiled Object files
+*.o
+
+# Compiled Static libraries
+*.a
+
+# Executables & Tests
+*.out
+test_*
+main.c
+*test.c
