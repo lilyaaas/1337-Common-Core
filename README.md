@@ -16,3 +16,7 @@ Example for **Libft**:
 ```bash
 cd 00_Libft
 make
+```
+This will compile the source files and generate the libft.a static library.
+
+_Created by **Ilyas Lhouari**._
