@@ -14,3 +14,7 @@
 test_*
 main.c
 *test.c
+
+# Generated files
+*.pdf
+*.PDF
