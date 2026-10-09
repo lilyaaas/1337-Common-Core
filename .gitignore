@@ -2,6 +2,8 @@
 .DS_Store
 .DS_Store?
 ._*
+.vscode
+.test
 
 # Compiled Object files
 *.o
@@ -13,6 +15,7 @@
 *.out
 test_*
 main.c
+main
 *test.c
 
 # Generated files
