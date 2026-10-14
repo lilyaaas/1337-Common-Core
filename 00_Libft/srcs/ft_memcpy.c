@@ -3,7 +3,7 @@
 void *ft_memcpy(void *dst, const void *src, size_t n)
 {
     unsigned char *d;
-    unsigned char *s;
+    const unsigned char	*s;
     size_t i;
 
     if (!dst && !src)
