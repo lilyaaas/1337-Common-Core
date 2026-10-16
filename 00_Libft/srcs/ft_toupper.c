@@ -6,13 +6,13 @@
 /*   By: lilyass <lilyass@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 17:48:53 by lilyass           #+#    #+#             */
-/*   Updated: 2026/10/16 17:48:54 by lilyass          ###   ########.fr       */
+/*   Updated: 2026/10/16 18:26:24 by lilyass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-    if (c >= 'a' && c <= 'z')
-        c = c - 32;
-    return (c);
+	if (c >= 'a' && c <= 'z')
+		c = c - 32;
+	return (c);
 }

@@ -6,13 +6,13 @@
 /*   By: lilyass <lilyass@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 17:46:29 by lilyass           #+#    #+#             */
-/*   Updated: 2026/10/16 17:46:30 by lilyass          ###   ########.fr       */
+/*   Updated: 2026/10/16 18:12:05 by lilyass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    if (c >= '0' && c <= '9')
-        return (1);
-    return (0);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

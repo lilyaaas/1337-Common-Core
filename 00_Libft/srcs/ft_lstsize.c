@@ -6,22 +6,21 @@
 /*   By: lilyass <lilyass@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 17:48:20 by lilyass           #+#    #+#             */
-/*   Updated: 2026/10/16 17:48:21 by lilyass          ###   ########.fr       */
+/*   Updated: 2026/10/16 18:21:49 by lilyass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-    int     len;
+	int		len;
 
-    len = 0;
-    while (lst)
-    {
-        len++;
-        lst = lst->next;
-    }
-
-    return (len);
+	len = 0;
+	while (lst)
+	{
+		len++;
+		lst = lst->next;
+	}
+	return (len);
 }

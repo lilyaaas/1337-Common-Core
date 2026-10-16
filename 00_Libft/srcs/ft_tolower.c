@@ -6,13 +6,13 @@
 /*   By: lilyass <lilyass@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 17:48:52 by lilyass           #+#    #+#             */
-/*   Updated: 2026/10/16 17:48:53 by lilyass          ###   ########.fr       */
+/*   Updated: 2026/10/16 18:26:19 by lilyass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if (c <= 'Z' && c >= 'A')
-        c += 32;
-    return (c);
+	if (c <= 'Z' && c >= 'A')
+		c += 32;
+	return (c);
 }

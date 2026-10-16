@@ -6,13 +6,13 @@
 /*   By: lilyass <lilyass@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 17:46:30 by lilyass           #+#    #+#             */
-/*   Updated: 2026/10/16 17:46:31 by lilyass          ###   ########.fr       */
+/*   Updated: 2026/10/16 18:12:33 by lilyass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    if (c >= 32 && c <= 126)
-        return (1);
-    return (0);
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }

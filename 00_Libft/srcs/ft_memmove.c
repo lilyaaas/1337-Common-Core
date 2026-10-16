@@ -6,7 +6,7 @@
 /*   By: lilyass <lilyass@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 17:48:23 by lilyass           #+#    #+#             */
-/*   Updated: 2026/10/16 17:48:24 by lilyass          ###   ########.fr       */
+/*   Updated: 2026/10/16 18:23:14 by lilyass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	if (!dst && !src)
 		return (NULL);
-
 	d = (unsigned char *)dst;
 	s = (const unsigned char *)src;
 	if (d > s)

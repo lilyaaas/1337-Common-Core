@@ -6,7 +6,7 @@
 /*   By: lilyass <lilyass@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 17:46:37 by lilyass           #+#    #+#             */
-/*   Updated: 2026/10/16 17:46:38 by lilyass          ###   ########.fr       */
+/*   Updated: 2026/10/16 18:19:29 by lilyass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 	if (!lst || !del)
 		return ;
-    
 	while (*lst)
 	{
 		tmp = (*lst)->next;
