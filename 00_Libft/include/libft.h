@@ -6,7 +6,7 @@
 /*   By: lilyass <lilyass@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 17:47:10 by lilyass           #+#    #+#             */
-/*   Updated: 2026/10/16 18:45:13 by lilyass          ###   ########.fr       */
+/*   Updated: 2026/10/26 14:11:48 by lilyass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_putnbr_fd(int n, int fd);
 /* Partie 3 - Linked list functions */
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
+unsigned int		ft_lstsize(t_list *lst); // This wont't not give you OK in Norminett, you have to nodify it
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
