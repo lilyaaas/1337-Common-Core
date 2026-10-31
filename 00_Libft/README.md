@@ -16,7 +16,7 @@ To compile and manage the library, use the provided `Makefile` with the followin
 During the development of this project, the following resources were utilized:
 - Standard Linux `man` pages (e.g., `man 3 malloc`, `man 3 write`) for behavior replication.
 - 42 Norme documentation for strict C coding standards.
-- AI Assistant (Gemini) was used as a conceptual thought partner and tutor to explain C.
+- AI Assistant was used as a conceptual thought partner and tutor to explain C.
 
 ## Functions Implemented
 
