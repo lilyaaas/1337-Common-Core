@@ -2,7 +2,7 @@
 
 # ft_printf
 
-## 🎯 Description
+## Description
 
 The goal of this project is to recode the C standard library function `printf()`.
 Unlike standard string manipulation, `ft_printf` requires dynamic memory stack parsing using **Variadic Arguments**. This project serves as a deep dive into low-level system architecture, specifically how arguments are pushed to the CPU stack and how to read raw memory when the data types are unknown at compile time.
@@ -29,7 +29,7 @@ Unlike standard string manipulation, `ft_printf` requires dynamic memory stack p
 
 * `%%` - Prints a percent sign.
 
-## 🧠 Algorithm & Data Structures
+## Algorithm & Data Structures
 
 For the mandatory scope, the core algorithm relies on a **Linear Parsing & Dispatch Array**.
 
@@ -41,7 +41,7 @@ For the mandatory scope, the core algorithm relies on a **Linear Parsing & Dispa
 
 4. **Return Value:** A strict counter is maintained across all sub-functions to track the exact number of bytes successfully written to the system, returning this total at the end to perfectly mimic the original `printf`.
 
-## ⚙️ Instructions
+## Instructions
 
 ### Compilation
 
@@ -77,7 +77,7 @@ cc main.c libftprintf.a -o my_program
 
 ```
 
-## 📚 Resources
+## Resources
 
 * [Linux Programmer's Manual: `man 3 printf`](https://man7.org/linux/man-pages/man3/printf.3.html)
 
