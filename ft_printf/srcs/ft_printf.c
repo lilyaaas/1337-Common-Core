@@ -6,7 +6,7 @@
 /*   By: lilyass <lilyass@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 17:08:20 by lilyass           #+#    #+#             */
-/*   Updated: 2026/11/08 23:26:13 by lilyass          ###   ########.fr       */
+/*   Updated: 2026/11/08 23:41:59 by lilyass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int ft_printf(const char *format, ...)
             s = va_arg(args, char *);
             if (!s)
                 s = "(null)";
-            write(1, s, strlen(s));
-            printed_chars += strlen(s);
+            write(1, s, ft_strlen(s));
+            printed_chars += ft_strlen(s);
             i += 2;
             continue;
         }
