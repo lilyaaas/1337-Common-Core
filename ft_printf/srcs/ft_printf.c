@@ -6,7 +6,7 @@
 /*   By: lilyass <lilyass@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 17:08:20 by lilyass           #+#    #+#             */
-/*   Updated: 2026/11/10 00:55:11 by lilyass          ###   ########.fr       */
+/*   Updated: 2026/11/10 17:05:11 by lilyass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ int ft_printf(const char *str, ...)
     size_t			i;
     int				printed_chars;
 
-    if (!str)
+    if (!str || (write(1, "", 0) == -1))
         return (-1);
-	if (write(1, "", 0) == -1)
-		return (-1);
 
     i = 0;
     printed_chars = 0;
