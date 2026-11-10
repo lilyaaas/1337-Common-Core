@@ -12,6 +12,7 @@
 
 #include "../include/ft_printf.h"
 
+// FT_STRLEN
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
@@ -22,11 +23,13 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
+// FT_PUTCHAR
 int	ft_putchar(char c)
 {
 	return (write(1, &c, 1));
 }
 
+// FT_PUTSTR
 int	ft_putstr(char *s)
 {
 	if (!s)
@@ -34,6 +37,7 @@ int	ft_putstr(char *s)
 	return (write(1, s, ft_strlen(s)));
 }
 
+// FT_PUTNBR
 void	ft_putnbr(int n, int *printed_chars)
 {
 	long	num;            
@@ -49,6 +53,7 @@ void	ft_putnbr(int n, int *printed_chars)
     *printed_chars += ft_putchar((num % 10) + '0');
 }
 
+// FT_PUTUNSGD
 void	ft_putunsgd(unsigned int n, int *printed_chars)
 {
 	if (n >= 10)
@@ -56,6 +61,7 @@ void	ft_putunsgd(unsigned int n, int *printed_chars)
     *printed_chars += ft_putchar((n % 10) + '0');
 }
 
+// FT_PUTADD
 void	ft_putadd(unsigned long addrs, int *printed_chars)
 {
 	char	buffer[16];
@@ -80,6 +86,7 @@ void	ft_putadd(unsigned long addrs, int *printed_chars)
 		*printed_chars += ft_putchar(buffer[i--]);
 }
 
+// FT_PUTHEX
 void    ft_puthex(unsigned long hex, int *printed_chars, char format)
 {
     char hex_digit;
