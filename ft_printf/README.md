@@ -9,57 +9,55 @@ Unlike standard string manipulation, `ft_printf` requires dynamic memory stack p
 
 **Prototype:** `int ft_printf(const char *, ...);`
 
-### Supported Conversions (Mandatory)
+## Contents
 
-* `%c` - Prints a single character.
+- `include/ft_printf.h`: public function declaration and internal helper declarations.
+- `srcs/ft_printf.c`: format-string traversal and conversion dispatch.
+- `srcs/helpers.c`: character, string, integer, pointer, and hexadecimal output helpers.
+- `test/ft_printf_tests.c`: comparison-style tests against the system `printf` for common values and edge cases.
+- `Makefile`: builds the static library `libftprintf.a`.
 
-* `%s` - Prints a string.
+## Supported Conversions
 
-* `%p` - Prints a `void *` pointer in hexadecimal format.
+| Specifier | Argument type | Output |
+| --- | --- | --- |
+| `%c` | `int` (promoted character) | One character |
+| `%s` | `char *` | String up to its terminating null byte; a null pointer prints `(null)` |
+| `%p` | `void *` | Lowercase hexadecimal address with `0x` prefix; a null pointer prints `(nil)` |
+| `%d` | `int` | Signed decimal integer |
+| `%i` | `int` | Signed decimal integer |
+| `%u` | `unsigned int` | Unsigned decimal integer |
+| `%x` | `unsigned int` | Lowercase hexadecimal integer |
+| `%X` | `unsigned int` | Uppercase hexadecimal integer |
+| `%%` | None | A literal percent sign |
 
-* `%d` - Prints a decimal (base 10) number.
 
-* `%i` - Prints an integer (base 10).
+## How It Works
 
-* `%u` - Prints an unsigned decimal (base 10) number.
+`ft_printf` walks the format string from left to right. Ordinary characters are written directly. When it sees `%`, it dispatches the next character to the matching conversion handler. The handler retrieves the corresponding argument using `va_arg`; helper functions convert numeric values to output a digit at a time. Output is written to file descriptor 1 using `write`.
 
-* `%x` - Prints a number in hexadecimal (base 16) lowercase.
+The implementation uses the `va_list` interface from `<stdarg.h>`; it does not inspect or read raw stack memory. The return value is accumulated from the helper write calls and is intended to represent the number of characters printed.
 
-* `%X` - Prints a number in hexadecimal (base 16) uppercase.
+## Build
 
-* `%%` - Prints a percent sign.
+Requirements: a C compiler and `make`.
 
-## Algorithm & Data Structures
+From the project directory:
 
-For the mandatory scope, the core algorithm relies on a **Linear Parsing & Dispatch Array**.
-
-1. **The Traversal:** The function iterates through the constant string character by character. If a normal character is encountered, it is immediately dispatched to a `write` wrapper.
-
-2. **The Intercept:** When a `%` character is detected, the parser intercepts the next character as the "format specifier".
-
-3. **The Stack Raid (`va_list`):** Using the `<stdarg.h>` macros, the algorithm initializes a `va_list` pointer. Depending on the intercepted specifier, it uses `va_arg` to cast the current stack memory address to the correct data type (e.g., `int`, `char *`, `unsigned int`), processes it into a string or character, and writes it to Standard Output (`fd 1`).
-
-4. **Return Value:** A strict counter is maintained across all sub-functions to track the exact number of bytes successfully written to the system, returning this total at the end to perfectly mimic the original `printf`.
-
-## Instructions
-
-### Compilation
-
-To compile the library, clone the repository and run `make`. This will compile the source files and the included `libft`, generating the static library `libftprintf.a`.
-
-```
-make        # Compiles libftprintf.a
-make clean  # Removes object files
-make fclean # Removes object files and the library
-make re     # Recompiles the entire project
-
+```sh
+make        # Build libftprintf.a
+make clean  # Remove object files
+make fclean # Remove object files and libftprintf.a
+make re     # Clean and rebuild the library
 ```
 
-### Execution (Linking)
+The library is built from `srcs/ft_printf.c` and `srcs/helpers.c` with `-Wall -Wextra -Werror`. No external `libft` is required. The Makefile does not define a test target.
 
-To use `ft_printf` in your own projects, include the header and compile your code alongside the static library:
+## Use the Library
 
-```
+Include the public header and link the generated archive:
+
+```c
 #include "ft_printf.h"
 
 int main()
@@ -67,20 +65,35 @@ int main()
     ft_printf("Hello %s, ur score is %d and ur ranking is %d\n", "player", 1337, 42);
     return (0);
 }
-
 ```
 
-Compile with:
+For example, if the program is saved as `main.c`:
 
+```sh
+cc -Wall -Wextra -Werror -Iinclude main.c libftprintf.a -o my_program
+./my_program
 ```
-cc main.c libftprintf.a -o my_program
 
+## Tests
+
+Build the library first, then compile the comparison test from the project root:
+
+```sh
+cc -Wno-format -Iinclude test/ft_printf_tests.c libftprintf.a -o ft_printf_tests
+./ft_printf_tests
 ```
+
+The test program compares output counts and behavior for the supported conversions, including null strings and pointers, integer limits, mixed conversions, and extra arguments. It also contains null-format and incomplete-format cases; these are non-portable edge cases and should not be treated as guarantees of standard `printf` behavior.
+
+## Scope and Limitations
+
+This project implements the basic conversion set above. It does not currently implement flags, field width, precision, length modifiers, or the other conversions supported by the standard library. Error handling for failed writes is also simpler than libc `printf`; the implementation is intended for the required project scope rather than as a fully compatible replacement.
 
 ## Resources
 
-* [Linux Programmer's Manual: `man 3 printf`](https://man7.org/linux/man-pages/man3/printf.3.html)
+- [`printf(3)` manual](https://man7.org/linux/man-pages/man3/printf.3.html)
+- [`stdarg(3)` manual](https://man7.org/linux/man-pages/man3/stdarg.3.html)
 
-* [Linux Programmer's Manual: `man 3 stdarg`](https://man7.org/linux/man-pages/man3/stdarg.3.html)
+## AI Usage
 
-* **AI Usage:** AI was used as a sparring partner and architectural coach to analyze the low-level mechanics of Variadic Arguments, `write` system calls, and Two's Complement memory behavior. No code was blindly copied; AI was leveraged strictly for foundational understanding and edge-case security testing.
+AI was used as a sparring partner to discuss variadic arguments, `write` calls, and edge cases. The implementation and tests are maintained in this repository.
