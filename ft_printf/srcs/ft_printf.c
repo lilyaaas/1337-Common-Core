@@ -6,7 +6,7 @@
 /*   By: lilyass <lilyass@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 17:08:20 by lilyass           #+#    #+#             */
-/*   Updated: 2026/11/12 11:40:30 by lilyass          ###   ########.fr       */
+/*   Updated: 2026/11/12 12:23:30 by lilyass          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			if (str[i + 1] == '\0')
-				break ;
+				return (-1);
 			printed_chars += conversion(args, str, &i);
 			i++;
 		}
