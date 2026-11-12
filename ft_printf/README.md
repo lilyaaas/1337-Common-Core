@@ -88,12 +88,3 @@ The test program compares output counts and behavior for the supported conversio
 ## Scope and Limitations
 
 This project implements the basic conversion set above. It does not currently implement flags, field width, precision, length modifiers, or the other conversions supported by the standard library. Error handling for failed writes is also simpler than libc `printf`; the implementation is intended for the required project scope rather than as a fully compatible replacement.
-
-## Resources
-
-- [`printf(3)` manual](https://man7.org/linux/man-pages/man3/printf.3.html)
-- [`stdarg(3)` manual](https://man7.org/linux/man-pages/man3/stdarg.3.html)
-
-## AI Usage
-
-AI was used as a sparring partner to discuss variadic arguments, `write` calls, and edge cases. The implementation and tests are maintained in this repository.
